@@ -46,6 +46,9 @@ class NormalScene(Scene):
         "default_riemann_end_color": GREEN,
         "area_opacity": 0.8,
         "num_rects": 50,
+        "decimal_number_config": {
+            "num_decimal_places": 2,
+        }
     }
 
     def setup(self):
@@ -108,6 +111,7 @@ class NormalScene(Scene):
             color = self.axes_color,
             line_to_number_vect = LEFT,
             label_direction = LEFT,
+            decimal_number_config = self.decimal_number_config
         )
         y_axis.shift(self.graph_origin - y_axis.number_to_point(0))
         y_axis.rotate(np.pi/2, about_point = y_axis.number_to_point(0))

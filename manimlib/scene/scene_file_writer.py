@@ -255,7 +255,7 @@ class SceneFileWriter(object):
                 command += [STREAMING_PROTOCOL + '://' + STREAMING_IP + ':' + STREAMING_PORT]
         else:
             command += [temp_file_path]
-        self.writing_process = subprocess.Popen(command, stdin=subprocess.PIPE)
+        self.writing_process = subprocess.Popen(command, stdin=subprocess.PIPE, shell=True)
 
     def close_movie_pipe(self):
         self.writing_process.stdin.close()

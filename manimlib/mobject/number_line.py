@@ -96,11 +96,14 @@ class NumberLine(Line):
 
     def get_tick_numbers(self):
         u = -1 if self.include_tip else 1
-        return np.arange(
-            self.leftmost_tick,
-            self.x_max + u * self.tick_frequency / 2,
-            self.tick_frequency
-        )
+        if(self.tick_frequency > 0):
+            return np.arange(
+                self.leftmost_tick,
+                self.x_max + u * self.tick_frequency / 2,
+                self.tick_frequency
+            )
+        else:
+            return []
 
     def number_to_point(self, number):
         alpha = float(number - self.x_min) / (self.x_max - self.x_min)
